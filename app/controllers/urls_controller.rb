@@ -25,6 +25,13 @@ class UrlsController < ApplicationController
   end
 
 
+  def destroy
+    @url = Url.find(params[:id])
+    @url.destroy
+    redirect_to urls_path
+  end
+
+
   private
   def url_params
       params.require(:url).permit(:long_url)
